@@ -83,42 +83,10 @@ public class Crawler
 		urlID++;
 	}
 
-	/*
-	public String makeAbsoluteURL(String url, String parentURL) {
-	if (url.indexOf(":")<0) {
-	// the protocol part is already there.
-	return url;
-}
 
-if (url.length > 0 && url.charAt(0) == '/') {
-// It starts with '/'. Add only host part.
-int posHost = url.indexOf("://");
-if (posHost <0) {
-return url;
-}
-int posAfterHist = url.indexOf("/", posHost+3);
-if (posAfterHist < 0) {
-posAfterHist = url.Length();
-}
-String hostPart = url.substring(0, posAfterHost);
-return hostPart + "/" + url;
-}
-
-// URL start with a char different than "/"
-int pos = parentURL.lastIndexOf("/");
-int posHost = parentURL.indexOf("://");
-if (posHost <0) {
-return url;
-}
-
-
-
-
-}
-*/
-public  string  getDescription(String url) {
+public  String  getDescription(String url) {
 	try {
-		Document  doc = Jsoup.connect(urlScanned).get();
+		Document  doc = Jsoup.connect(url).get();
 		Elements links = doc.select("a[href]");
 		String title = doc.title();
 		StringBuilder strRead = new StringBuilder(doc.title());
@@ -168,7 +136,7 @@ public void fetchURL(String urlScanned) {
 				String g = link.attr("abs:href");
 
 				if (!urlInDB(g)) {
-					
+
 					insertURLInDB(g,"");
 					count++;
 
