@@ -84,121 +84,116 @@ public class Crawler
 	}
 
 
-public  String  getDescription(String url) {
-	try {
-		Document  doc = Jsoup.connect(url).get();
-		Elements links = doc.select("a[href]");
-		String title = doc.title();
-		StringBuilder strRead = new StringBuilder(doc.title());
-		strRead.append(doc.body().text());
-		String s = strRead.toString();
-		String description = s.substring(0,Math.min(s.length(),100));
-		return description;
-		//insertURLInDB(urlScanned	,description);
-	} catch (Exception e)
-	{
-		e.printStackTrace();
+	public  String  getDescription(String url) {
+		try {
+			Document  doc = Jsoup.connect(url).get();
+			Elements links = doc.select("a[href]");
+			String title = doc.title();
+			StringBuilder strRead = new StringBuilder(doc.title());
+			strRead.append(doc.body().text());
+			String s = strRead.toString();
+			String description = s.substring(0,Math.min(s.length(),100));
+
+
+
+
+			return description;
+			//insertURLInDB(urlScanned	,description);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
 	}
-	return null;
-}
 
-public void fetchURL(String urlScanned) {
-	try {
-
-
-		Document  doc = Jsoup.connect(urlScanned).get();
-		Elements links = doc.select("a[href]");
+	public void fetchURL(String urlScanned) {
+		try {
+			int count = 0;
+			int i  = 0;
+			//crawl starts
 
 
-
-		System.out.println("the title is " + doc.title());
-		System.out.println("the doc text is " + doc.body().text());
-		String title = doc.title();
-		StringBuilder strRead = new StringBuilder(doc.title());
-		strRead.append(doc.body().text());
-		String s = strRead.toString();
-
-
-		String description = s.substring(0,Math.min(s.length(),100));
-
-		//insertURLInDB(urlScanned	,description);
-		insertURLInDB(urlScanned,description);
-
-
-		int count = 0;
-		int i  = 0;
-
-		while(count < maxCount) {
-			//System.out.println("assdasd");
+			int refUrl = urlID;
+			while(count < maxCount) {
+				//System.out.println("assdasd");
+				Document  doc = Jsoup.connect(urlScanned).get();
+				Elements links = doc.select("a[href]");
+				String title = doc.title();
+				StringBuilder strRead = new StringBuilder(doc.title());
+				strRead.append(doc.body().text());
+				String s = strRead.toString();
+				String description = s.substring(0,Math.min(s.length(),100));
+				insertURLInDB(urlScanned,description);
+				count++;
 
 
-			for (Element link : links) {
-				String g = link.attr("abs:href");
+				for (Element link : links) {
+					String website = link.attr("abs:href");
 
-				if (!urlInDB(g)) {
 
-					insertURLInDB(g,"");
-					count++;
+					if (!urlInDB(website)) {
+						//still need to check whether its a valid html m8!
+						Document  d = Jsoup.connect(website).get();
+						StringBuilder builder = new StringBuilder(d.title());
+						builder.append(d.body().text());
+						String str = builder.toString();
+						String desc = str.substring(0,Math.min(str.length(),100));
+						insertURLInDB(str,desc);
+						count++;
 
-				} else {
-					//System.out.println("already have the ur3l inside the database" + g);
+					} else {
+
+						//System.out.println("already have the ur3l inside the database" + g);
+						System.out.println("");
+					}
+					//now go to the next URL u retard
+					Statement st = connection.createStatement();
+					refUrl++;
+					String sql = ("SELECT * FROM url WHERE urlid =" + refUrl + ";");
+					ResultSet rs = st.executeQuery(sql);
+					if (rs.next()) {
+						String result = rs.getString("url");
+						urlScanned = result;
+					}
+
+
+
 				}
-
 
 			}
 
 		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+
+	public void startCrawl() {
+		//need to cleaer the database;
+		int NextURLID = 0;
+		int NEXTIRLIDScanned  =  0;
 
 
 
-		// while (matcher.find()) {
-		// 	int start = matcher.start();
-		// 	int end = matcher.end();
-		// 	String match = input.substring(start, end);
-		// 	String urlFound = matcher.group(1);
-		//
-		// 	// Check if it is already in the database
-		// 	if (!urlInDB(urlFound)) {
-		// 		insertURLInDB(urlFound);
-		// 	} else {
-		// 		//System.out.println("there already exsists a url");
-		// 	}
-		//
-		// 	//System.out.println(match);
-		// }
 
 	}
-	catch (Exception e)
+
+	public static void main(String[] args)
 	{
-		e.printStackTrace();
+		Crawler crawler = new Crawler();
+
+		try {
+			crawler.readProperties();
+			String root = crawler.props.getProperty("crawler.root");
+			crawler.createDB();
+			//System.out.println("the root is " + root);
+			//crawler.fetchURL(root);
+			crawler.fetchURL("https://www.cs.purdue.edu");
+		}
+		catch( Exception e) {
+			e.printStackTrace();
+		}
 	}
-}
-
-
-public void startCrawl() {
-	//need to cleaer the database;
-	int NextURLID = 0;
-	int NEXTIRLIDScanned  =  0;
-
-
-
-
-}
-
-public static void main(String[] args)
-{
-	Crawler crawler = new Crawler();
-
-	try {
-		crawler.readProperties();
-		String root = crawler.props.getProperty("crawler.root");
-		crawler.createDB();
-		//System.out.println("the root is " + root);
-		//crawler.fetchURL(root);
-		crawler.fetchURL("https://www.cs.purdue.edu");
-	}
-	catch( Exception e) {
-		e.printStackTrace();
-	}
-}
 }
