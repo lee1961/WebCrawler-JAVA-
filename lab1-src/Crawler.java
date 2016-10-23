@@ -14,13 +14,14 @@ public class Crawler
 	Connection connection;
 	int urlID;
 	int currentUrlCount;
-	int maxCount = 0;
+	static int maxCount = 0;
 	public Properties props;
 
 	Crawler() {
 		urlID = 0;
 		currentUrlCount = 0 ;
-		maxCount = 0;
+		//maxCount = 0;
+	 	maxCount = 0;
 	}
 
 	public void readProperties() throws IOException {
@@ -110,20 +111,22 @@ public class Crawler
 		try {
 			int count = 0;
 			int i  = 0;
+			System.out.println("sadasdsadsa");
+			System.out.println("the urlid is " + urlID);
 			//crawl starts
 
-
+			String urltoVisit = urlScanned;
 			int refUrl = urlID;
 			while(count < maxCount) {
 				//System.out.println("assdasd");
-				Document  doc = Jsoup.connect(urlScanned).get();
+				Document  doc = Jsoup.connect(urltoVisit).get();
 				Elements links = doc.select("a[href]");
 				String title = doc.title();
 				StringBuilder strRead = new StringBuilder(doc.title());
 				strRead.append(doc.body().text());
 				String s = strRead.toString();
 				String description = s.substring(0,Math.min(s.length(),100));
-				insertURLInDB(urlScanned,description);
+				insertURLInDB(urltoVisit,description);
 				count++;
 
 
@@ -138,7 +141,7 @@ public class Crawler
 						builder.append(d.body().text());
 						String str = builder.toString();
 						String desc = str.substring(0,Math.min(str.length(),100));
-						insertURLInDB(str,desc);
+						//insertURLInDB(website,desc);
 						count++;
 
 					} else {
@@ -153,7 +156,7 @@ public class Crawler
 					ResultSet rs = st.executeQuery(sql);
 					if (rs.next()) {
 						String result = rs.getString("url");
-						urlScanned = result;
+						urltoVisit = result;
 					}
 
 
@@ -187,6 +190,11 @@ public class Crawler
 		try {
 			crawler.readProperties();
 			String root = crawler.props.getProperty("crawler.root");
+			int max = Integer.parseInt(crawler.props.getProperty("crawler.maxurls"));
+			maxCount = max;
+			System.out.println("the maax is " + maxCount);
+
+
 			crawler.createDB();
 			//System.out.println("the root is " + root);
 			//crawler.fetchURL(root);
