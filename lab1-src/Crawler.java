@@ -136,13 +136,20 @@ public class Crawler
 
 					if (!urlInDB(website)) {
 						//still need to check whether its a valid html m8!
-						Document  d = Jsoup.connect(website).get();
-						StringBuilder builder = new StringBuilder(d.title());
-						builder.append(d.body().text());
-						String str = builder.toString();
-						String desc = str.substring(0,Math.min(str.length(),100));
-						//insertURLInDB(website,desc);
-						count++;
+						try {
+							Document  d = Jsoup.connect(website).get();
+							StringBuilder builder = new StringBuilder(d.title());
+							builder.append(d.body().text());
+							String str = builder.toString();
+							String desc = str.substring(0,Math.min(str.length(),100));
+							System.out.println("the description is " + desc);
+							//insertURLInDB(website,desc);
+							insertURLInDB(website,desc);
+							count++;
+						} catch (Exception e) {
+
+						}
+
 
 					} else {
 
@@ -152,7 +159,7 @@ public class Crawler
 					//now go to the next URL u retard
 					Statement st = connection.createStatement();
 					refUrl++;
-					String sql = ("SELECT * FROM url WHERE urlid =" + refUrl + ";");
+					String sql = ("SELECT * FROM urls WHERE urlid =" + refUrl + ";");
 					ResultSet rs = st.executeQuery(sql);
 					if (rs.next()) {
 						String result = rs.getString("url");
