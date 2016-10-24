@@ -63,6 +63,8 @@ public class Crawler
 		stat.executeUpdate("CREATE TABLE WORDS(Word VARCHAR(512), URLID INT)");
 	}
 
+
+
 	public boolean urlInDB(String urlFound) throws SQLException, IOException {
 		Statement stat = connection.createStatement();
 		ResultSet result = stat.executeQuery( "SELECT * FROM urls WHERE url LIKE '"+urlFound+"'");
@@ -83,6 +85,41 @@ public class Crawler
 		stat.executeUpdate( query );
 		urlID++;
 	}
+	public boolean wordInCurrentUrl(String word) throws SQLException, IOException {
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
+		stmt.setString(1,word);
+		stmt.setInt(2,urlID);
+		ResultSet rs = stmt.executeQuery();
+		if(rs.next()) {
+			//System.out.println("the result is " + rs.getString("url"));
+			return true;
+		}
+		return false;
+	}
+	public void tokenizeWebsite(String url) {
+		try {
+			Document  doc = Jsoup.connect(url).get();
+			String text = doc.body().text();
+			String arr[] = text.split(" ");
+			for(int i = 0; i < arr.length ; i++) {
+				String temp = arr[i];
+				temp = temp.trim();
+				temp = temp.replaceAll("[^A-Za-z0-9]", "");
+				if(!temp.equals("")) {
+					//if the word doesnt exist in the current urlID then only insert
+					if(!wordInCurrentUrl(temp)) {
+						Statement stat = connection.createStatement();
+						String query = "INSERT INTO WORDS VALUES ('"+temp+"','"+urlID+"')";
+						stat.executeUpdate( query );
+					}
+				}
+			}
+
+		} catch (Exception e) {
+
+		}
+
+	}
 
 
 	public  String  getDescription(String url) {
@@ -94,10 +131,6 @@ public class Crawler
 			strRead.append(doc.body().text());
 			String s = strRead.toString();
 			String description = s.substring(0,Math.min(s.length(),100));
-
-
-
-
 			return description;
 			//insertURLInDB(urlScanned	,description);
 		} catch (Exception e)
@@ -130,6 +163,7 @@ public class Crawler
 				strRead.append(doc.body().text());
 				String s = strRead.toString();
 				String description = s.substring(0,Math.min(s.length(),100));
+				tokenizeWebsite(urltoVisit);
 				insertURLInDB(urltoVisit,description);
 				count++;
 
@@ -146,7 +180,13 @@ public class Crawler
 							builder.append(d.body().text());
 							String str = builder.toString();
 							String desc = str.substring(0,Math.min(str.length(),100));
+
+							//inserting the words into the word table
+							tokenizeWebsite(website);
+							//inserting the link into the url table
 							insertURLInDB(website,desc);
+
+
 							count++;
 
 						} catch (Exception e) {
@@ -187,10 +227,6 @@ public class Crawler
 		//need to cleaer the database;
 		int NextURLID = 0;
 		int NEXTIRLIDScanned  =  0;
-
-
-
-
 	}
 
 	public static void main(String[] args)

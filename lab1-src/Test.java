@@ -9,11 +9,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Test {
-
-	public static void main(String[] args) throws SQLException, IOException {
+	static Connection connection;
+	public static void main(String[] args) throws Exception {
 		//System.out.println("hello world");
 		//String drivers = props.getProperty("jdbc.drivers");
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=root&password=123");
+		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=root&password=123");
 		// int id = 1;
 		// String id_str = "1";
 		// String sql = ("SELECT url FROM urls WHERE urlid = " + String.valueOf(id));
@@ -37,7 +37,20 @@ public class Test {
 		Document  doc = Jsoup.connect(url).get();
 		String text = doc.body().text();
 		//System.out.println(text);
-		tokenizeWebsite(url);
+		//tokenizeWebsite(url);
+		checkWordExist();
+	}
+	public static void checkWordExist() throws Exception {
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
+		stmt.setString(1,"Lawson");
+		int id = 0;
+		stmt.setInt(2,id);
+		//stmt.setString(1,temp);
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next()) {
+			System.out.println("the result is " + rs.getString("urlid"));
+			//System.out.println("yeah alreadyd exist in the url");
+		}
 	}
 	public static void tokenizeWebsite(String url) {
 		try {
@@ -50,6 +63,14 @@ public class Test {
 				//str = str.replaceAll("[^A-Za-z0-9]", "");
 				temp = temp.replaceAll("[^A-Za-z0-9]", "");
 				if(!temp.equals("")) {
+					//checking whether the word is alredy
+					PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `urls` WHERE `urlid` = ?");
+					int g = 1;
+					stmt.setInt(1,g);
+					ResultSet rs = stmt.executeQuery();
+					if(rs.next()) {
+						System.out.println("the result is " + rs.getString("url"));
+					}
 					System.out.println(temp);
 				}
 				//System.out.print(temp + " ");
