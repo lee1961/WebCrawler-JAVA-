@@ -106,15 +106,18 @@ public class Crawler
 		}
 
 	}
-	int refUrl = 0;
+
 	public void fetchURL(String urlScanned) {
+		//insert the second link
+
+		int refUrl = urlID;
 		try {
 			int count = 0;
 			int i  = 0;
 			System.out.println("sadasdsadsa");
 			System.out.println("the urlid is " + urlID);
 			//crawl starts
-
+			System.out.println("the max count is " + maxCount);
 			String urltoVisit = urlScanned;
 
 			while(count < maxCount) {
@@ -135,6 +138,9 @@ public class Crawler
 					if (!urlInDB(website)) {
 						//still need to check whether its a valid html m8!
 						try {
+							if(count > maxCount) {
+								break;
+							}
 							Document  d = Jsoup.connect(website).get();
 							StringBuilder builder = new StringBuilder(d.title());
 							builder.append(d.body().text());
@@ -142,6 +148,7 @@ public class Crawler
 							String desc = str.substring(0,Math.min(str.length(),100));
 							insertURLInDB(website,desc);
 							count++;
+
 						} catch (Exception e) {
 
 						}
@@ -149,7 +156,6 @@ public class Crawler
 					} else {
 						//System.out.println("already have the ur3l inside the database" + g);
 					}
-					//now go to the next URL u retard
 
 				}
 				// bfs for that link is Done
@@ -164,9 +170,9 @@ public class Crawler
 				ResultSet rs = stmt.executeQuery();
 				if (rs.next()) {
 					String result = rs.getString("url");
-					System.out.println("the result is " + result);
+					//System.out.println("the result is " + result);
 					urltoVisit = result;
-					System.out.println("the urltovisit  is " + urltoVisit);
+					//System.out.println("the urltovisit  is " + urltoVisit);
 				}
 			}
 		}
