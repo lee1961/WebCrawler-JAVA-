@@ -20,8 +20,8 @@ public class Crawler
 	Crawler() {
 		urlID = 0;
 		currentUrlCount = 0 ;
-		//maxCount = 0;
-	 	maxCount = 0;
+		maxCount = 0;
+		//maxCount = 1000;
 	}
 
 	public void readProperties() throws IOException {
@@ -68,7 +68,7 @@ public class Crawler
 		ResultSet result = stat.executeQuery( "SELECT * FROM urls WHERE url LIKE '"+urlFound+"'");
 
 		if (result.next()) {
-			System.out.println("URL "+urlFound+" already in DB");
+			//System.out.println("URL "+urlFound+" already in DB");
 			return true;
 		}
 		// System.out.println("URL "+urlFound+" not yet in DB");
@@ -102,11 +102,11 @@ public class Crawler
 			//insertURLInDB(urlScanned	,description);
 		} catch (Exception e)
 		{
-			e.printStackTrace();
+			return "";
 		}
-		return null;
-	}
 
+	}
+	int refUrl = 0;
 	public void fetchURL(String urlScanned) {
 		try {
 			int count = 0;
@@ -116,9 +116,10 @@ public class Crawler
 			//crawl starts
 
 			String urltoVisit = urlScanned;
-			int refUrl = urlID;
+
 			while(count < maxCount) {
 				//System.out.println("assdasd");
+				//System.out.println("urltoVisit is " + urltoVisit);
 				Document  doc = Jsoup.connect(urltoVisit).get();
 				Elements links = doc.select("a[href]");
 				String title = doc.title();
@@ -129,11 +130,8 @@ public class Crawler
 				insertURLInDB(urltoVisit,description);
 				count++;
 
-
 				for (Element link : links) {
 					String website = link.attr("abs:href");
-
-
 					if (!urlInDB(website)) {
 						//still need to check whether its a valid html m8!
 						try {
@@ -142,36 +140,35 @@ public class Crawler
 							builder.append(d.body().text());
 							String str = builder.toString();
 							String desc = str.substring(0,Math.min(str.length(),100));
-							System.out.println("the description is " + desc);
-							//insertURLInDB(website,desc);
 							insertURLInDB(website,desc);
 							count++;
 						} catch (Exception e) {
 
 						}
 
-
 					} else {
-
 						//System.out.println("already have the ur3l inside the database" + g);
-						System.out.println("");
 					}
 					//now go to the next URL u retard
-					Statement st = connection.createStatement();
-					refUrl++;
-					String sql = ("SELECT * FROM urls WHERE urlid =" + refUrl + ";");
-					ResultSet rs = st.executeQuery(sql);
-					if (rs.next()) {
-						String result = rs.getString("url");
-						urltoVisit = result;
-					}
-
-
 
 				}
+				// bfs for that link is Done
+				Statement st = connection.createStatement();
+				refUrl++;
 
+				String sql = ("SELECT url FROM urls WHERE urlid = " + String.valueOf(refUrl));
+
+				PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `urls` WHERE `urlid` = ?");
+				stmt.setInt(1,refUrl);
+
+				ResultSet rs = stmt.executeQuery();
+				if (rs.next()) {
+					String result = rs.getString("url");
+					System.out.println("the result is " + result);
+					urltoVisit = result;
+					System.out.println("the urltovisit  is " + urltoVisit);
+				}
 			}
-
 		}
 		catch (Exception e)
 		{
@@ -198,7 +195,7 @@ public class Crawler
 			crawler.readProperties();
 			String root = crawler.props.getProperty("crawler.root");
 			int max = Integer.parseInt(crawler.props.getProperty("crawler.maxurls"));
-			maxCount = max;
+			maxCount = max - 1; // minus 1 because starts from zero
 			System.out.println("the maax is " + maxCount);
 
 
