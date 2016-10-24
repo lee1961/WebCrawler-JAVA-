@@ -97,6 +97,7 @@ public class Crawler
 		}
 		return false;
 	}
+	//inserting words into the word table
 	public void tokenizeWebsite(String url) {
 		try {
 			Document  doc = Jsoup.connect(url).get();
@@ -109,9 +110,14 @@ public class Crawler
 				if(!temp.equals("")) {
 					//if the word doesnt exist in the current urlID then only insert
 					if(!wordInCurrentUrl(temp)) {
-						Statement stat = connection.createStatement();
-						String query = "INSERT INTO WORDS VALUES ('"+temp+"','"+urlID+"')";
-						stat.executeUpdate( query );
+						//Statement stat = connection.createStatement();
+						//String query = "INSERT INTO WORDS VALUES ('"+temp+"','"+urlID+"')";
+						//stat.executeUpdate( query );
+						String query = "insert into WORDS(word,urlid)" + " values (?,?)";
+						PreparedStatement stat = connection.prepareStatement(query);
+						stat.setString(1,temp);
+						stat.setInt(2,urlID);
+						stat.executeUpdate();
 					}
 				}
 			}

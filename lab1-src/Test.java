@@ -11,6 +11,10 @@ import org.jsoup.select.Elements;
 public class Test {
 	static Connection connection;
 	public static void main(String[] args) throws Exception {
+
+
+
+
 		//System.out.println("hello world");
 		//String drivers = props.getProperty("jdbc.drivers");
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=root&password=123");
@@ -38,10 +42,75 @@ public class Test {
 		String text = doc.body().text();
 		//System.out.println(text);
 		//tokenizeWebsite(url);
-		checkWordExist();
+		//checkWordExist();
+		//String g = "   Gene Spafford  Grace  ";
+		String g = "Gene";
+		//String za = g.trim();
+		//System.out.println("the zstring is \n" + za);
+		//g.replaceAll("\\s+$", "");
+		//System.out.println(g.trim());
+		//g = rtrim(g);
+		g = g.trim();
+		System.out.println(g);
+		String arr[] = g.split(" ");
+
+		//System.out.println(arr[1]);
+		StringBuilder strbuilder = new StringBuilder();
+		strbuilder.append("SELECT distinct urlid FROM WORDS ");
+		//strbuilder.setLength(strbuilder.length() - 7);
+		//System.out.println("the strbuilder string is " + strbuilder.toString());
+
+		//select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford');
+		String concat = " AND urlid in (select distinct urlid from words";
+		//System.out.println("the arr.length is " + arr.length);
+
+		// SELECT distinct urlid FROM WORDS  Where Word = 'Gene' AND urlid in (select distinct urlid from words Where Word = 'Spafford' AND urlid in (select distinct urlid from words Where Word = 'Grace'));
+		String z = "select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford')";
+		int count = arr.length;
+		for(int i = 0 ; i < arr.length ; i++) {
+			//handle 0 Word
+			//handle 1 Word
+			//handle multiple words
+			// "select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford')";
+			strbuilder.append(" Where Word = " + "\'"  + arr[i] + "\'"  + concat);
+
+		}
+		//select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford');
+		// SELECT distinct urlid FROM WORDS  Where Word = 'Gene' AND urlid in (select distinct urlid from words Where Word = 'Spafford';
+		strbuilder.setLength(strbuilder.length() - concat.length());
+		for(int i = 1 ; i < count ;i++) {
+			strbuilder.append(")");
+		}
+		System.out.println("the strbuilder string is " + strbuilder.toString());
+		PreparedStatement stmt = connection.prepareStatement(strbuilder.toString());
+		// for(int i = 0; i < arr.length ;i++) {
+		// 	stmt.setString(i+1,arr[i]);
+		// }
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next()) {
+			System.out.println("the urlid is " + rs.getString("urlid"));
+			//System.out.println("yeah alreadyd exist in the url");
+		}
+		insertWeirdWord();
+	}
+	public static void insertWeirdWord() throws Exception {
+		//String query = "INSERT INTO WORDS (word,urlid) VALUES (?,?)";
+		String query = "insert into WORDS(word,urlid)" + " values (?,?)";
+		PreparedStatement stat = connection.prepareStatement(query);
+
+		String word = "Pothen's";
+		int urlid = 2001;
+		stat.setString(1,word);
+		stat.setInt(2,urlid);
+
+
+
+		stat.executeUpdate();
+
 	}
 	public static void checkWordExist() throws Exception {
 		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
+
 		stmt.setString(1,"Lawson");
 		int id = 0;
 		stmt.setInt(2,id);
