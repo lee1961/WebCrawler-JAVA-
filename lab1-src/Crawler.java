@@ -55,6 +55,7 @@ public class Crawler
 			stat.executeUpdate("DROP TABLE WORDS");
 		}
 		catch (Exception e) {
+
 		}
 
 		// Create the table
@@ -158,11 +159,7 @@ public class Crawler
 				//System.out.println("urltoVisit is " + urltoVisit);
 				Document  doc = Jsoup.connect(urltoVisit).get();
 				Elements links = doc.select("a[href]");
-				String title = doc.title();
-				StringBuilder strRead = new StringBuilder(doc.title());
-				strRead.append(doc.body().text());
-				String s = strRead.toString();
-				String description = s.substring(0,Math.min(s.length(),100));
+				String description = getDescription(urltoVisit);
 				tokenizeWebsite(urltoVisit);
 				insertURLInDB(urltoVisit,description);
 				count++;
