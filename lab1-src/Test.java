@@ -37,9 +37,19 @@ public class Test {
 		// if(rs.next()) {
 		// 	System.out.println("the result is " + rs.getString("url"));
 		// }
-		String url = "https://www.cs.purdue.edu";
+		//String url = "https://www.cs.purdue.edu";
+		String url = "https://www.cs.purdue.edu/";
 		Document  doc = Jsoup.connect(url).get();
 		String text = doc.body().text();
+		Element image = doc.select("img").first();
+		if(image != null) {
+			String im = image.absUrl("src");
+			if( im != null) {
+				System.out.println("the url is " + im);
+			}
+		}
+
+
 		//System.out.println(text);
 		//tokenizeWebsite(url);
 		//checkWordExist();
@@ -88,7 +98,7 @@ public class Test {
 		// }
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
-			System.out.println("the urlid is " + rs.getString("urlid"));
+			System.out.println("the urlid is " + rs.getInt("urlid"));
 			//System.out.println("yeah alreadyd exist in the url");
 		}
 		insertWeirdWord();
