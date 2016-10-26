@@ -1,0 +1,421 @@
+Oct 14, 2016 12:17:40 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/hello]
+Oct 14, 2016 12:17:40 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 12:17:40 AM org.apache.tomcat.util.digester.Digester fatalError
+SEVERE: Parse Fatal Error at line 1 column 1: Premature end of file.
+org.xml.sax.SAXParseException; systemId: jndi:/localhost/hello/WEB-INF/web.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1019)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:504)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1576)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1862)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1262)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:888)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:388)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5522)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:4138)
+	at org.apache.catalina.startup.HostConfig.reload(HostConfig.java:1539)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1512)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1748)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:333)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1370)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1542)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1552)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1520)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 14, 2016 12:17:40 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Parse error in application web.xml file at jndi:/localhost/hello/WEB-INF/web.xml
+org.xml.sax.SAXParseException; systemId: jndi:/localhost/hello/WEB-INF/web.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1019)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:504)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1576)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1862)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1262)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:888)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:388)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5522)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:4138)
+	at org.apache.catalina.startup.HostConfig.reload(HostConfig.java:1539)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1512)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1748)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:333)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1370)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1542)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1552)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1520)
+	at java.lang.Thread.run(Thread.java:745)
+
+Oct 14, 2016 12:17:40 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Occurred at line 1 column 1
+Oct 14, 2016 12:17:40 AM org.apache.catalina.startup.ContextConfig configureStart
+SEVERE: Marking this application unavailable due to previous error(s)
+Oct 14, 2016 12:17:40 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: One or more components marked the context as not correctly configured
+Oct 14, 2016 12:17:40 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/hello] startup failed due to previous errors
+Oct 14, 2016 12:17:40 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 14, 2016 12:18:00 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/hello]
+Oct 14, 2016 12:21:01 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 12:21:01 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Desktop\sql\tomcat\conf\logging.properties
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Desktop\sql\tomcat\endorsed
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:10 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Desktop\sql\tomcat\temp
+Oct 14, 2016 12:21:10 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Oct 14, 2016 12:21:10 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Oct 14, 2016 12:21:11 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Oct 14, 2016 12:21:11 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:11 AM org.apache.coyote.AbstractProtocol init
+SEVERE: Failed to initialize end point associated with ProtocolHandler ["http-apr-9999"]
+java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:470)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:650)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:452)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:978)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:838)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:642)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:667)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:253)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:427)
+
+Oct 14, 2016 12:21:11 AM org.apache.catalina.core.StandardService initInternal
+SEVERE: Failed to initialize connector [Connector[HTTP/1.1-9999]]
+org.apache.catalina.LifecycleException: Failed to initialize component [Connector[HTTP/1.1-9999]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:838)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:642)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:667)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:253)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:427)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:980)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:470)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:650)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:452)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:978)
+	... 13 more
+
+Oct 14, 2016 12:21:11 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:11 AM org.apache.coyote.AbstractProtocol init
+SEVERE: Failed to initialize end point associated with ProtocolHandler ["ajp-apr-8009"]
+java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:470)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:650)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:452)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:978)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:838)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:642)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:667)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:253)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:427)
+
+Oct 14, 2016 12:21:11 AM org.apache.catalina.core.StandardService initInternal
+SEVERE: Failed to initialize connector [Connector[AJP/1.3-8009]]
+org.apache.catalina.LifecycleException: Failed to initialize component [Connector[AJP/1.3-8009]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:838)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:642)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:667)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:253)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:427)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:980)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:470)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:650)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:452)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:978)
+	... 13 more
+
+Oct 14, 2016 12:21:11 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1362 ms
+Oct 14, 2016 12:21:11 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Oct 14, 2016 12:21:11 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Oct 14, 2016 12:21:11 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs has finished in 385 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples has finished in 391 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello has finished in 95 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager has finished in 84 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager has finished in 78 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT has finished in 54 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1137 ms
+Oct 14, 2016 12:21:12 AM org.apache.catalina.core.StandardServer await
+SEVERE: StandardServer.await: create[localhost:8005]: 
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:444)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:781)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:727)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:294)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:428)
+
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:12 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:12 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:13 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:13 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Desktop\sql\tomcat\conf\logging.properties
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Desktop\sql\tomcat\endorsed
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Desktop\sql\tomcat
+Oct 14, 2016 12:21:19 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Desktop\sql\tomcat\temp
+Oct 14, 2016 12:21:19 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Oct 14, 2016 12:21:19 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Oct 14, 2016 12:21:20 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Oct 14, 2016 12:21:20 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:20 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:20 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1308 ms
+Oct 14, 2016 12:21:20 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Oct 14, 2016 12:21:20 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Oct 14, 2016 12:21:20 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs has finished in 379 ms
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples has finished in 385 ms
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello has finished in 99 ms
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager has finished in 76 ms
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager has finished in 78 ms
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT has finished in 68 ms
+Oct 14, 2016 12:21:21 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-9999"]
+Oct 14, 2016 12:21:21 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Oct 14, 2016 12:21:21 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1160 ms
+Oct 14, 2016 1:49:46 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/hello]
+Oct 14, 2016 1:49:46 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 1:49:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 14, 2016 1:50:07 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/hello]
+Oct 14, 2016 1:50:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 1:50:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 14, 2016 1:50:27 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/hello]
+Oct 14, 2016 1:50:27 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 1:50:27 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 14, 2016 1:59:09 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 14, 2016 1:59:09 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed

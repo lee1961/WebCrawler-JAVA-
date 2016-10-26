@@ -1,0 +1,276 @@
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Desktop\sql\tomcat\conf\logging.properties
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Desktop\sql\tomcat\endorsed
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 12:20:58 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Desktop\sql\tomcat\temp
+Oct 25, 2016 12:20:58 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Oct 25, 2016 12:20:58 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Oct 25, 2016 12:20:59 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Oct 25, 2016 12:20:59 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 12:20:59 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 12:20:59 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 4581 ms
+Oct 25, 2016 12:21:00 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Oct 25, 2016 12:21:00 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Oct 25, 2016 12:21:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs
+Oct 25, 2016 12:21:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs has finished in 606 ms
+Oct 25, 2016 12:21:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples has finished in 1,464 ms
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello has finished in 201 ms
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager has finished in 117 ms
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager has finished in 100 ms
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT has finished in 100 ms
+Oct 25, 2016 12:21:02 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 12:21:02 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 12:21:02 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2758 ms
+Oct 25, 2016 12:23:32 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:23:32 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:26:03 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:26:03 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:29:23 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:29:23 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:42:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:42:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:42:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:42:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:44:04 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:44:04 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:44:24 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:44:24 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:46:25 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:46:25 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:53:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:53:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:57:36 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:57:36 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:58:16 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:58:16 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 12:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 12:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:00:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:00:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:01:57 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:01:57 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:02:34 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:02:34 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:02:34 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Oct 25, 2016 1:02:34 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:02:35 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:02:35 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:02:35 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Desktop\sql\tomcat\conf\logging.properties
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Desktop\sql\tomcat\endorsed
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Desktop\sql\tomcat
+Oct 25, 2016 1:02:52 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Desktop\sql\tomcat\temp
+Oct 25, 2016 1:02:52 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Oct 25, 2016 1:02:52 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Oct 25, 2016 1:02:53 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Oct 25, 2016 1:02:53 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:02:53 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:02:53 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1517 ms
+Oct 25, 2016 1:02:53 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Oct 25, 2016 1:02:53 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Oct 25, 2016 1:02:53 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\docs has finished in 445 ms
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\examples has finished in 461 ms
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\hello has finished in 110 ms
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\host-manager has finished in 80 ms
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\manager has finished in 56 ms
+Oct 25, 2016 1:02:54 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT
+Oct 25, 2016 1:02:55 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Desktop\sql\tomcat\webapps\ROOT has finished in 66 ms
+Oct 25, 2016 1:02:55 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:02:55 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:02:55 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1305 ms
+Oct 25, 2016 1:03:25 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:03:25 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:12:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:12:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:12:36 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:12:36 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:14:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:14:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:25:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:25:08 AM org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated for Servlet [QueryServlet]
+Oct 25, 2016 1:25:08 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/hello] appears to have started a thread named [http-apr-9999-exec-23] but has failed to stop it. This is very likely to create a memory leak.
+Oct 25, 2016 1:25:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:25:38 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 25, 2016 1:25:38 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:49:40 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-apr-9999"]
+Oct 25, 2016 1:49:40 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-apr-8009"]
