@@ -68,7 +68,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             //     +  "</p>");
             //     count++;
             // }
-            // // this prints the urlid 
+            // // this prints the urlid
             // while(count < urlid.length) {
             //     out.println("<p>" + urlid[count]
             //     +  "</p>");
@@ -87,7 +87,16 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     if(rs.next()) {
                         // out.println("<p>" + rs.getString("url")
                         // +  "</p>");
+                        //<img src="https://www.cs.purdue.edu//images/brand.svg" style="width:50px;height:50px;">
+                        //StringBuilder strb = new StringBuilder();
+                        //sg.append("<img src= " + "\""  +     )
                         //<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a> Try it Yourself »
+                        StringBuilder strbPic = new StringBuilder();
+                        String picture = rs.getString("picture");
+                        if (picture != null) {
+                            strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px; "    );
+                            out.println(strbPic.toString());
+                        }
                         out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + rs.getString("description") + "</a>" + "<br>");
 
                         resultURL[i] = rs.getString("url");
