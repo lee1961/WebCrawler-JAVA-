@@ -94,7 +94,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                         StringBuilder strbPic = new StringBuilder();
                         String picture = rs.getString("picture");
                         if (picture != null) {
-                            strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px; "    );
+                            strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
                             out.println(strbPic.toString());
                         }
                         out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + rs.getString("description") + "</a>" + "<br>");
