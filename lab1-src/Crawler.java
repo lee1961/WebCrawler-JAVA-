@@ -17,6 +17,7 @@ public class Crawler
     static int maxCount = 0;
     public Properties props;
 
+
     Crawler() {
         urlID = 0;
         currentUrlCount = 0 ;
@@ -115,16 +116,23 @@ public class Crawler
     //inserting words into the word table
     public void tokenizeWebsite(String url) {
         try {
+            //HashTable<String,String> hash = new HashTable<String,String>();
+            HashSet<String> hash_set = new HashSet<String>();
+
             Document  doc = Jsoup.connect(url).get();
             String text = doc.body().text();
             String arr[] = text.split(" ");
             for(int i = 0; i < arr.length ; i++) {
                 String temp = arr[i];
                 temp = temp.trim();
+
                 temp = temp.replaceAll("[^A-Za-z0-9]", "");
                 if(!temp.equals("")) {
+                    //hash.put(temp,url);
+
                     //if the word doesnt exist in the current urlID then only insert
-                    if(!wordInCurrentUrl(temp)) {
+                    if(!hash_set.contains(temp)) {
+                        hash_set.add(temp);
                         //Statement stat = connection.createStatement();
                         //String query = "INSERT INTO WORDS VALUES ('"+temp+"','"+urlID+"')";
                         //stat.executeUpdate( query );
@@ -246,6 +254,8 @@ public class Crawler
             //Element image = doc.select("img[src$=.jpg]").first();
             //img[src~=(?i)\.(png|jpe?g)]
             Element image = doc.select("img[src~=(?i).(png|jpe?g)]").first();
+            ///Element image = doc.select("img[src~=]")
+
             if(image != null) {
                 String im = image.absUrl("src");
 
