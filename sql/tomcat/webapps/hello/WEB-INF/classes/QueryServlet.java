@@ -9,6 +9,7 @@ import java.util.*;
 @WebServlet("/searchQuery")
 public class QueryServlet extends HttpServlet {  // JDK 6 and above only
     Connection conn = null;
+    String para;
     // The doGet() runs once per HTTP GET request to this servlet.
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,6 +23,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
         Statement stmt = null;
         PreparedStatement st = null;
         try {
+
             // Step 1: Allocate a database Connection object
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=myuser&password=xxxx"); // <== Check!
 
@@ -32,8 +34,6 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             String g = request.getParameter("query");
             int urlid[] = returnUrlid(g);
 
-
-
             // Step 3: Execute a SQL SELECT query
             // String sqlStr = "select * from books where author = "
             // + "'" + request.getParameter("author") + "'"
@@ -41,10 +41,19 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
 
             // Print an HTML page as the output of the query
             out.println("<html><head><title>Query Response</title></head><body>");
+
             // to search again
             out.println("<h3>Search again</h3>");
             out.println("<form method=\"get\" action=\"http://localhost:9999/hello/searchQuery\">");
-            out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
+
+            if(para == null) {
+                out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
+            } else {
+                StringBuilder para_value = new StringBuilder();
+                para_value.append("\"<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\"  value=" + para + " ><br><br> ");
+                out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
+            }
+
             String temp = "<input type=\"submit\" value=\"Search\">";
             out.println(temp);
             out.println("</form>");
@@ -69,38 +78,48 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             //     count++;
             // }
             // // this prints the urlid
-            // while(count < urlid.length) {
-            //     out.println("<p>" + urlid[count]
-            //     +  "</p>");
-            //     count++;
-            // }
-
+            while(count < urlid.length) {
+                // out.println("<p>" + urlid[count]
+                // +  "</p>");
+                count++;
+            }
 
             out.println("<p>==== " + count + " records found =====</p>");
+
             String resultURL[] = new String[urlid.length];
             for(int i = 0 ; i < urlid.length ; i++) {
-                	//PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
-                    System.out.println("yeah i am here");
-                    PreparedStatement statement = conn.prepareStatement("SELECT * FROM URLS WHERE urlid = ?");
-                    statement.setInt(1,urlid[i]);
-                    ResultSet rs = statement.executeQuery();
-                    if(rs.next()) {
-                        // out.println("<p>" + rs.getString("url")
-                        // +  "</p>");
-                        //<img src="https://www.cs.purdue.edu//images/brand.svg" style="width:50px;height:50px;">
-                        //StringBuilder strb = new StringBuilder();
-                        //sg.append("<img src= " + "\""  +     )
-                        //<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a> Try it Yourself »
-                        StringBuilder strbPic = new StringBuilder();
-                        String picture = rs.getString("picture");
-                        if (picture != null) {
-                            strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
-                            out.println(strbPic.toString());
-                        }
-                        out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + rs.getString("description") + "</a>" + "<br>");
+                //PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
+                System.out.println("yeah i am here");
+                PreparedStatement statement = conn.prepareStatement("SELECT * FROM URLS WHERE urlid = ?");
+                statement.setInt(1,urlid[i]);
+                ResultSet rs = statement.executeQuery();
+                if(rs.next()) {
+                    // out.println("<p>" + rs.getString("url")
+                    // +  "</p>");
+                    //<img src="https://www.cs.purdue.edu//images/brand.svg" style="width:50px;height:50px;">
+                    //StringBuilder strb = new StringBuilder();
+                    //sg.append("<img src= " + "\""  +     )
+                    //<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a> Try it Yourself »
+                    StringBuilder strbPic = new StringBuilder();
+                    String picture = rs.getString("picture");
+                    if (picture != null) {
+                        strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
+                        out.println(strbPic.toString());
+                    } else if(picture == null) {
 
-                        resultURL[i] = rs.getString("url");
+                        //strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
+                        //strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;he   ight:50px;\"> "    );
+                        //strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
+                        out.println(strbPic.toString());
                     }
+                    String t = "<strong>" + rs.getString("description") + "</strong>";
+                    StringBuilder strurl = new StringBuilder();
+                    strurl.append("<i>       " + rs.getString("url") + "</i><br>");
+                    out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + t + "</a>" + "<br>");
+                    out.println(strurl.toString());
+
+                    resultURL[i] = rs.getString("url");
+                }
             }
             // count = 0;
             // while(count < resultURL.length) {
@@ -109,7 +128,11 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             //     count++;
             // }
 
+            //out.println("<p>==== " + count + "   records found =====</p>");
+            //para =
 
+            para =  request.getParameter("query");
+            System.out.println("para is " + para);
             out.println("</body></html>");
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -160,6 +183,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             return result;
         } catch (Exception e) {
 
+            //    System.out.println(e.getMessage());
         }
         return null;
 
