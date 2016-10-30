@@ -171,10 +171,14 @@ public class Crawler
     }
 
     public void fetchURL(String urlScanned) {
-        //insert the second link
+        //insert some links first
+
+        HashSet<String> hash_url = new HashSet<String>();
+        int flag = 0;
 
         int refUrl = urlID;
         try {
+
             int count = 0;
             int i  = 0;
             System.out.println("sadasdsadsa");
@@ -192,11 +196,19 @@ public class Crawler
                 String picture = getPicture(urltoVisit);
                 tokenizeWebsite(urltoVisit);
                 insertURLInDB(urltoVisit,description,picture);
+                hash_url.add(urltoVisit);
                 count++;
+                if(flag == 0) {
+                    String secondLink = "https://www.cs.purdue.edu/homes/cs390lang/java";
+                    insertURLInDB(secondLink,getDescription(secondLink),getPicture(secondLink));
+                    hash_url.add(secondLink);
+                    flag++;
+                    count++;
+                }
 
                 for (Element link : links) {
                     String website = link.attr("abs:href");
-                    if (!urlInDB(website)) {
+                    if (!hash_url.contains(website)) {
                         //still need to check whether its a valid html m8!
                         try {
                             if(count > maxCount) {
@@ -211,6 +223,7 @@ public class Crawler
                             tokenizeWebsite(website);
                             //inserting the link into the url table
                             insertURLInDB(website,desc,pic);
+                            hash_url.add(website);
 
 
                             count++;
@@ -247,14 +260,16 @@ public class Crawler
             e.printStackTrace();
         }
     }
+
+
     public static String getPicture (String url ){
         try {
             Document  doc = Jsoup.connect(url).get();
             String text = doc.body().text();
-            //Element image = doc.select("img[src$=.jpg]").first();
+            Element image = doc.select("img[src$=.jpg]").first();
             //img[src~=(?i)\.(png|jpe?g)]
-            Element image = doc.select("img[src~=(?i).(png|jpe?g)]").first();
-            ///Element image = doc.select("img[src~=]")
+            //Element image = doc.select("img[src~=(?i).(png|jpe?g)]").first();
+            //Element image = doc.select("img[src~=]");
 
             if(image != null) {
                 String im = image.absUrl("src");
