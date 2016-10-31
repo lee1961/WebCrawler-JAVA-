@@ -53,11 +53,14 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             // } else {
                 //StringBuilder para_value = new StringBuilder();
                 para = request.getParameter("query");
+                //para = para.replace(' ','+');
+
             //    para_value.append("\"<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\"  value=" + "\"" + para + "\""+ "><br><br> ");
             //para_value.append("<input style=height:30px;font-size:20pt;width:1000px; input type=\"text\" name=\"query\"  value=\"victor\" ><br><br> ");
             //    out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
         //    out.println(para_value.toString());
-            out.println("<input  name=\"query\" type=\"text\"   style=\"height:30px;font-size:20pt;width:1000px\" value=" + para +  ">  ");
+
+            out.println("<input  name=\"query\" type=\"text\"   style=\"height:30px;font-size:20pt;width:1000px\" value=\"" + para +  "\">  ");
 
             String temp = "<input type=\"submit\" value=\"Search\">";
             out.println(temp);
@@ -106,11 +109,18 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     //StringBuilder strb = new StringBuilder();
                     //sg.append("<img src= " + "\""  +     )
                     //<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a> Try it Yourself »
+                    //<img style="width: 50px; height: 50px; float: left;" src="https://www.cs.purdue.edu//images/brand.svg" alt="" border="1" />
+                    //</div>
                     StringBuilder strbPic = new StringBuilder();
                     String picture = rs.getString("picture");
+                    out.println("<div style=\"clear: left; height: 70px\"> ");
                     if (picture != null) {
-                        strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
+                        //strbPic.append("<img style=\"width: 50px;height: 50px; float: left;\" src=\"" + picture + "\" alt=\"\" border=\"1\" >");
+                        //System.out.println("the picure link os " + picture);
+                        strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;float:left;\"> "    );
                         out.println(strbPic.toString());
+                        System.out.println("the strbpic is " + strbPic.toString());
+
                     } else if(picture == null) {
 
                         //strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;\"> "    );
@@ -120,9 +130,12 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     }
                     String t = "<strong>" + rs.getString("description") + "</strong>";
                     StringBuilder strurl = new StringBuilder();
+
+
                     strurl.append("<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " + rs.getString("url") + "</i><br>");
                     out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + t + "</a>" + "<br>");
                     out.println(strurl.toString());
+                    out.println("</div>");
 
                     resultURL[i] = rs.getString("url");
                 }
@@ -224,6 +237,9 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
            case '"':
                result.append("&quot;");
                break;
+            case '+':
+                result.append(" ");
+                break;
            default:
                result.append(content[i]);
            }
