@@ -120,7 +120,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     }
                     String t = "<strong>" + rs.getString("description") + "</strong>";
                     StringBuilder strurl = new StringBuilder();
-                    strurl.append("<i> " + rs.getString("url") + "</i><br>");
+                    strurl.append("<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " + rs.getString("url") + "</i><br>");
                     out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + t + "</a>" + "<br>");
                     out.println(strurl.toString());
 
