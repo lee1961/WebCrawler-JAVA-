@@ -1,0 +1,92 @@
+Oct 31, 2016 3:22:43 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:22:43 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:23:03 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:23:03 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:23:23 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:23:23 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:23:43 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:23:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:24:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:24:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:24:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:24:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:24:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:24:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:38:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:38:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:39:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:39:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:41:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:41:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:41:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:41:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:43:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:43:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:43:28 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:43:28 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:44:18 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:44:18 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:46:39 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:46:39 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 3:46:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 3:46:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:00:21 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:00:21 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:08:13 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:08:13 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:08:33 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:08:33 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:11:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:11:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:12:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:12:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:12:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:12:34 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 31, 2016 4:12:55 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 31, 2016 4:12:55 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed

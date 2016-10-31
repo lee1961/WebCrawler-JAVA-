@@ -1,0 +1,200 @@
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\conf\logging.properties
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\endorsed
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Oct 30, 2016 3:14:55 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\temp
+Oct 30, 2016 3:14:55 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Oct 30, 2016 3:14:55 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Oct 30, 2016 3:14:56 PM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Oct 30, 2016 3:14:57 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Oct 30, 2016 3:14:57 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Oct 30, 2016 3:14:57 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 2058 ms
+Oct 30, 2016 3:14:57 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Oct 30, 2016 3:14:57 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Oct 30, 2016 3:14:57 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\docs
+Oct 30, 2016 3:14:58 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [119] milliseconds.
+Oct 30, 2016 3:14:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\docs has finished in 829 ms
+Oct 30, 2016 3:14:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\examples
+Oct 30, 2016 3:14:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\examples has finished in 1,630 ms
+Oct 30, 2016 3:14:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\hello
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\hello has finished in 172 ms
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\host-manager
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\host-manager has finished in 96 ms
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\manager
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\manager has finished in 127 ms
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\ROOT
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\ROOT has finished in 93 ms
+Oct 30, 2016 3:15:00 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-9999"]
+Oct 30, 2016 3:15:00 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Oct 30, 2016 3:15:00 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 3137 ms
+Oct 30, 2016 3:48:23 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 3:48:23 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 3:48:53 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 3:48:53 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:08:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:08:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:09:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:09:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:12:35 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:12:36 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:12:56 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:12:56 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:15:56 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:15:56 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:17:36 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:17:36 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:18:06 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:18:06 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:18:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:18:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:19:36 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:19:36 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:40:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:40:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:40:48 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:40:48 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:41:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:41:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:49:49 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:49:49 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 4:50:39 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 4:50:39 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:48:57 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:48:57 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:51:37 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:51:38 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:53:08 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:53:08 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:53:38 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:53:38 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:56:59 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:56:59 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 7:58:19 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 7:58:19 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 8:03:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 8:03:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 8:03:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 8:03:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 8:03:30 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 8:03:30 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 8:50:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 8:50:10 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 9:06:13 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 9:06:13 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 9:16:05 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 9:16:05 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed
+Oct 30, 2016 9:19:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Oct 30, 2016 9:19:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed

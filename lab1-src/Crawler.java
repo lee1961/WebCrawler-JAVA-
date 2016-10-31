@@ -153,22 +153,66 @@ public class Crawler
 
 
     public  String  getDescription(String url) {
-        try {
-            Document  doc = Jsoup.connect(url).get();
-            Elements links = doc.select("a[href]");
-            String title = doc.title();
-            StringBuilder strRead = new StringBuilder(doc.title());
-            strRead.append(doc.body().text());
-            String s = strRead.toString();
-            String description = s.substring(0,Math.min(s.length(),100));
-            return description;
-            //insertURLInDB(urlScanned	,description);
-        } catch (Exception e)
-        {
-            return "";
-        }
+		try {
+			Document  doc = Jsoup.connect(url).get();
+			Elements links = doc.select("a[href]");
+			String title = doc.title();
+			//	System.out.println("the title is " + title);
+			title = title.replaceAll("\\p{Punct}+", "");
+			StringBuilder strRead = new StringBuilder();
+			//System.out.println("the title is " + title);
+			strRead.append(title);
 
-    }
+
+			//Document doctor = Jsoup.parse(url);
+
+			//String text = doc.body().text();
+			String text = doc.select("body").text();
+			//System.out.println("the length of the text is "+ text.length());
+			if(text.length() != 0) {
+				//System.out.println("nothing inside here");
+				text = text.replaceAll("\\p{Punct}+", "");
+				strRead.append(text);
+			}
+		//	System.out.println("the text is " + text);
+			// String text = new String();
+			// if(doc.body().text() != null) {
+			// 	text = doc.body().text();
+			// }
+			// if(text != null) {
+			// 	System.out.println("yeh");
+			// 	text = text.replaceAll("\\p{Punct}+", "");
+			// 	strRead.append(text);
+			// }
+
+
+
+			String s = strRead.toString();
+			//	System.out.println("the s is " + s );
+			String description = s.substring(0,Math.min(s.length(),100));
+
+			return description;
+
+			// Document doc = Jsoup.connect(url).get();
+			// 	// for(Element meta : doc.select("meta")) {
+			// 	//     System.out.println("Name: " + meta.attr("p") + " - Content: " + meta.attr("content"));
+			// 	// }
+			// 	//System.out.println(doc.title());
+			//
+			// 	String title = doc.title();
+			// 	//tmp = tmp.replaceAll("\\p{Punct}+", "");
+			// 	title = title.replaceAll("\\p{Punct}+", "");
+			// 	System.out.println(title);
+			// 	System.out.println("the length is " + title.length());
+			// 	return "";
+			//insertURLInDB(urlScanned	,description);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return "";
+		}
+
+	}
 
     public void fetchURL(String urlScanned) {
         //insert some links first
@@ -200,6 +244,7 @@ public class Crawler
                 count++;
                 if(flag == 0) {
                     String secondLink = "https://www.cs.purdue.edu/homes/cs390lang/java";
+                    System.out.println("the description of the second link is " + getDescription(secondLink));
                     insertURLInDB(secondLink,getDescription(secondLink),getPicture(secondLink));
                     hash_url.add(secondLink);
                     flag++;
@@ -266,16 +311,16 @@ public class Crawler
         try {
             Document  doc = Jsoup.connect(url).get();
             String text = doc.body().text();
-            Element image = doc.select("img[src$=.jpg]").first();
+        //    Element image = doc.select("img[src$=.jpg]").first();
             //img[src~=(?i)\.(png|jpe?g)]
             //Element image = doc.select("img[src~=(?i).(png|jpe?g)]").first();
-            //Element image = doc.select("img[src~=]");
+            Element image = doc.select("img[src~=]").first();
 
             if(image != null) {
                 String im = image.absUrl("src");
 
                 if( im != null) {
-                    System.out.println("the image url is " + im);
+                    //System.out.println("the image url is " + im);
                     return im;
                 } else {
                     return null;

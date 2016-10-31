@@ -31,3 +31,5 @@
 127.0.0.1 - - [29/Oct/2016:18:04:56 -0400] "GET /favicon.ico HTTP/1.1" 200 21630
 127.0.0.1 - - [29/Oct/2016:18:04:58 -0400] "GET /hello/searchQuery?query=eguene HTTP/1.1" 200 422
 127.0.0.1 - - [29/Oct/2016:18:05:02 -0400] "GET /hello/searchQuery?query=victor HTTP/1.1" 200 1657
+127.0.0.1 - - [29/Oct/2016:22:34:50 -0400] "GET /hello/searchQuery?query=s HTTP/1.1" 200 2051
+127.0.0.1 - - [29/Oct/2016:22:45:05 -0400] "GET /hello/searchQuery?query=victor HTTP/1.1" 200 1692

@@ -10,98 +10,82 @@ import org.jsoup.select.Elements;
 
 public class Test {
 	static Connection connection;
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args)  {
+
+		try {
+			//System.out.println("hello world");
+			//String drivers = props.getProperty("jdbc.drivers");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=root&password=123");
+			String secondLink = "https://www.cs.purdue.edu/homes/cs390lang/java/";
+			System.out.println("The description of the link is " + getDescription(secondLink));
+		} catch (Exception e) {
+			System.out.println("asd");
+			//System.out.println(e.printStackTrace());
+		}
 
 
 
+	}
+	public  static String  getDescription(String url) {
+		try {
+			Document  doc = Jsoup.connect(url).get();
+			Elements links = doc.select("a[href]");
+			String title = doc.title();
+			//	System.out.println("the title is " + title);
+			title = title.replaceAll("\\p{Punct}+", "");
+			StringBuilder strRead = new StringBuilder();
+			System.out.println("the title is " + title);
+			strRead.append(title);
 
-		//System.out.println("hello world");
-		//String drivers = props.getProperty("jdbc.drivers");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/urldatabase?user=root&password=123");
-		// int id = 1;
-		// String id_str = "1";
-		// String sql = ("SELECT url FROM urls WHERE urlid = " + String.valueOf(id));
-		// Statement stat = connection.createStatement();
-		// ResultSet rs = stat.executeQuery(sql);
-		// if (rs.next()) {
-		// 	String result = rs.getString("url");
-		// 	System.out.println("the result is " + result);
-		// 	//urltoVisit = result;
-		// 	//System.out.println("the urltovisit  is " + urltoVisit);
-		// }
-		// int g = 0;
-		// PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `urls` WHERE `urlid` = ?");
-		// stmt.setInt(1,g);
-		//
-		// ResultSet rs = stmt.executeQuery();
-		// if(rs.next()) {
-		// 	System.out.println("the result is " + rs.getString("url"));
-		// }
-		//String url = "https://www.cs.purdue.edu";
-		String url = "https://www.cs.purdue.edu/";
-		Document  doc = Jsoup.connect(url).get();
-		String text = doc.body().text();
-		Element image = doc.select("img").first();
-		if(image != null) {
-			String im = image.absUrl("src");
-			if( im != null) {
-				System.out.println("the url is " + im);
+
+			//Document doctor = Jsoup.parse(url);
+
+			//String text = doc.body().text();
+			String text = doc.select("body").text();
+			System.out.println("the length of the text is "+ text.length());
+			if(text.length() != 0) {
+				//System.out.println("nothing inside here");
+				text = text.replaceAll("\\p{Punct}+", "");
+				strRead.append(text);
 			}
+		//	System.out.println("the text is " + text);
+			// String text = new String();
+			// if(doc.body().text() != null) {
+			// 	text = doc.body().text();
+			// }
+			// if(text != null) {
+			// 	System.out.println("yeh");
+			// 	text = text.replaceAll("\\p{Punct}+", "");
+			// 	strRead.append(text);
+			// }
+
+
+
+			String s = strRead.toString();
+			//	System.out.println("the s is " + s );
+			String description = s.substring(0,Math.min(s.length(),100));
+
+			return description;
+
+			// Document doc = Jsoup.connect(url).get();
+			// 	// for(Element meta : doc.select("meta")) {
+			// 	//     System.out.println("Name: " + meta.attr("p") + " - Content: " + meta.attr("content"));
+			// 	// }
+			// 	//System.out.println(doc.title());
+			//
+			// 	String title = doc.title();
+			// 	//tmp = tmp.replaceAll("\\p{Punct}+", "");
+			// 	title = title.replaceAll("\\p{Punct}+", "");
+			// 	System.out.println(title);
+			// 	System.out.println("the length is " + title.length());
+			// 	return "";
+			//insertURLInDB(urlScanned	,description);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return "";
 		}
 
-
-		//System.out.println(text);
-		//tokenizeWebsite(url);
-		//checkWordExist();
-		//String g = "   Gene Spafford  Grace  ";
-		String g = "Gene";
-		//String za = g.trim();
-		//System.out.println("the zstring is \n" + za);
-		//g.replaceAll("\\s+$", "");
-		//System.out.println(g.trim());
-		//g = rtrim(g);
-		g = g.trim();
-		System.out.println(g);
-		String arr[] = g.split(" ");
-
-		//System.out.println(arr[1]);
-		StringBuilder strbuilder = new StringBuilder();
-		strbuilder.append("SELECT distinct urlid FROM WORDS ");
-		//strbuilder.setLength(strbuilder.length() - 7);
-		//System.out.println("the strbuilder string is " + strbuilder.toString());
-
-		//select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford');
-		String concat = " AND urlid in (select distinct urlid from words";
-		//System.out.println("the arr.length is " + arr.length);
-
-		// SELECT distinct urlid FROM WORDS  Where Word = 'Gene' AND urlid in (select distinct urlid from words Where Word = 'Spafford' AND urlid in (select distinct urlid from words Where Word = 'Grace'));
-		String z = "select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford')";
-		int count = arr.length;
-		for(int i = 0 ; i < arr.length ; i++) {
-			//handle 0 Word
-			//handle 1 Word
-			//handle multiple words
-			// "select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford')";
-			strbuilder.append(" Where Word = " + "\'"  + arr[i] + "\'"  + concat);
-
-		}
-		//select distinct urlid from words where word = 'gene' and urlid in (select distinct urlid from words where word = 'spafford');
-		// SELECT distinct urlid FROM WORDS  Where Word = 'Gene' AND urlid in (select distinct urlid from words Where Word = 'Spafford';
-		strbuilder.setLength(strbuilder.length() - concat.length());
-		for(int i = 1 ; i < count ;i++) {
-			strbuilder.append(")");
-		}
-		System.out.println("the strbuilder string is " + strbuilder.toString());
-		PreparedStatement stmt = connection.prepareStatement(strbuilder.toString());
-		// for(int i = 0; i < arr.length ;i++) {
-		// 	stmt.setString(i+1,arr[i]);
-		// }
-		ResultSet rs = stmt.executeQuery();
-		while(rs.next()) {
-			System.out.println("the urlid is " + rs.getInt("urlid"));
-			//System.out.println("yeah alreadyd exist in the url");
-		}
-		insertWeirdWord();
 	}
 	public static void insertWeirdWord() throws Exception {
 		//String query = "INSERT INTO WORDS (word,urlid) VALUES (?,?)";
