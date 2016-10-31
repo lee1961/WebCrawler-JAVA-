@@ -51,11 +51,13 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             // if(para == null) {
             //     out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
             // } else {
-                StringBuilder para_value = new StringBuilder();
+                //StringBuilder para_value = new StringBuilder();
                 para = request.getParameter("query");
             //    para_value.append("\"<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\"  value=" + "\"" + para + "\""+ "><br><br> ");
-                out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
-            //out.println(para_value.toString());
+            //para_value.append("<input style=height:30px;font-size:20pt;width:1000px; input type=\"text\" name=\"query\"  value=\"victor\" ><br><br> ");
+            //    out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
+        //    out.println(para_value.toString());
+            out.println("<input  name=\"query\" type=\"text\"   style=\"height:30px;font-size:20pt;width:1000px\" value=" + para +  ">  ");
 
             String temp = "<input type=\"submit\" value=\"Search\">";
             out.println(temp);
