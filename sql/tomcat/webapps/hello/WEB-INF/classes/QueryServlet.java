@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.util.*;
 
+
 @WebServlet("/searchQuery")
 public class QueryServlet extends HttpServlet {  // JDK 6 and above only
     Connection conn = null;
@@ -31,7 +32,8 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
 
             // Step 2: Allocate a Statement object within the Connection
             stmt = conn.createStatement();
-            String g = request.getParameter("query");
+            String g = filter(request.getParameter("query"));
+            System.out.println("the requestparameter is " + g);
             int urlid[] = returnUrlid(g);
 
             // Step 3: Execute a SQL SELECT query
@@ -46,20 +48,21 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             out.println("<h3>Search again</h3>");
             out.println("<form method=\"get\" action=\"http://localhost:9999/hello/searchQuery\">");
 
-            if(para == null) {
-                out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
-            } else {
+            // if(para == null) {
+            //     out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
+            // } else {
                 StringBuilder para_value = new StringBuilder();
-                para_value.append("\"<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\"  value=" + para + " ><br><br> ");
+                para = request.getParameter("query");
+            //    para_value.append("\"<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\"  value=" + "\"" + para + "\""+ "><br><br> ");
                 out.println("<input style=\"height:30px;font-size:20pt;width:1000px;\" input type=\"text\" name=\"query\" ><br><br>");
-            }
+            //out.println(para_value.toString());
 
             String temp = "<input type=\"submit\" value=\"Search\">";
             out.println(temp);
             out.println("</form>");
 
 
-            out.println("<h3>the requestparameter is " + request.getParameter("query") + "</h3>");
+            out.println("<h3>the requestparameter is " + filter(request.getParameter("query")) + "</h3>");
             out.println("<h3>Thank you for your query.</h3>");
 
 
@@ -69,7 +72,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             //out.println("<p>You query is: " + sqlStr + "</p>"); // Echo for debugging
             //ResultSet rset = stmt.executeQuery(sqlStr);  // Send the query to the server
 
-            // Step 4: Process the query result set
+            //  Step 4: Process the query result set
             int count = 0;
             // while(rs.next()) {
             //     // Print a paragraph <p>...</p> for each record
@@ -89,7 +92,8 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             String resultURL[] = new String[urlid.length];
             for(int i = 0 ; i < urlid.length ; i++) {
                 //PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
-                System.out.println("yeah i am here");
+                //System.out.println("yeah i am here");
+
                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM URLS WHERE urlid = ?");
                 statement.setInt(1,urlid[i]);
                 ResultSet rs = statement.executeQuery();
@@ -114,7 +118,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     }
                     String t = "<strong>" + rs.getString("description") + "</strong>";
                     StringBuilder strurl = new StringBuilder();
-                    strurl.append("<i>       " + rs.getString("url") + "</i><br>");
+                    strurl.append("<i> " + rs.getString("url") + "</i><br>");
                     out.println("<a style=\"height:30px;font-size:20pt;width:1000px;\" href=" +  "\"" + rs.getString("url") + "\">" + t + "</a>" + "<br>");
                     out.println(strurl.toString());
 
@@ -131,8 +135,8 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             //out.println("<p>==== " + count + "   records found =====</p>");
             //para =
 
-            para =  request.getParameter("query");
-            System.out.println("para is " + para);
+            //para =  request.getParameter("query");
+            //System.out.println("para is " + para);
             out.println("</body></html>");
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -188,4 +192,42 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
         return null;
 
     }
+
+    /**
+    * Filter the specified message string for characters that are sensitive
+    * in HTML.  This avoids potential attacks caused by including JavaScript
+    * codes in the request URL that is often reported in error messages.
+    *
+    * @param message The message string to be filtered
+    */
+   public static String filter(String message) {
+
+       if (message == null)
+           return (null);
+
+       char content[] = new char[message.length()];
+       message.getChars(0, message.length(), content, 0);
+       StringBuffer result = new StringBuffer(content.length + 50);
+       for (int i = 0; i < content.length; i++) {
+           switch (content[i]) {
+           case '<':
+               result.append("&lt;");
+               break;
+           case '>':
+               result.append("&gt;");
+               break;
+           case '&':
+               result.append("&amp;");
+               break;
+           case '"':
+               result.append("&quot;");
+               break;
+           default:
+               result.append(content[i]);
+           }
+       }
+       return (result.toString());
+
+   }
+
 }
