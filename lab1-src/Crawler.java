@@ -152,68 +152,71 @@ public class Crawler
     }
 
 
-    public  String  getDescription(String url) {
-		try {
-			Document  doc = Jsoup.connect(url).get();
-			Elements links = doc.select("a[href]");
-			String title = doc.title();
-			//	System.out.println("the title is " + title);
-			title = title.replaceAll("\\p{Punct}+", "");
-			StringBuilder strRead = new StringBuilder();
-			//System.out.println("the title is " + title);
-			strRead.append(title);
+    public  static String  getDescription(String url) {
+        try {
+
+            // first get the title
+            // then get the headers
+            //if not get the stuff
+            Document  doc = Jsoup.connect(url).get();
+            Elements links = doc.select("a[href]");
+
+            String title = doc.title();
+
+            title = title.replaceAll("\\p{Punct}+", "");
+            StringBuilder strRead = new StringBuilder();
 
 
-			//Document doctor = Jsoup.parse(url);
+            strRead.append(title);
 
-			//String text = doc.body().text();
-			String text = doc.select("body").text();
-			//System.out.println("the length of the text is "+ text.length());
-			if(text.length() != 0) {
-				//System.out.println("nothing inside here");
-				text = text.replaceAll("\\p{Punct}+", "");
-				strRead.append(text);
-			}
-		//	System.out.println("the text is " + text);
-			// String text = new String();
-			// if(doc.body().text() != null) {
-			// 	text = doc.body().text();
-			// }
-			// if(text != null) {
-			// 	System.out.println("yeh");
-			// 	text = text.replaceAll("\\p{Punct}+", "");
-			// 	strRead.append(text);
-			// }
+            Element link = doc.select("h1").first();
+            if(link != null && strRead.length() < 100) {
+                strRead.append(" ");
+                strRead.append(link.text());
+                strRead.append(" ");
+                link = doc.select("h2").first();
+                if(link != null && strRead.length() < 100) {
+                        strRead.append(link.text());
+                        strRead.append(" ");
+                        link = doc.select("h3").first();
+                        if(link != null && strRead.length() < 100) {
+                            strRead.append(link.text());
+                            strRead.append(" ");
+                            link = doc.select("h4").first();
+                            if(link != null && strRead.length() < 100 ) {
+                                strRead.append(link.text());
+                                strRead.append(" ");
+                                link = doc.select("h5").first();
+                                if(link != null && strRead.length() < 100) {
+                                    strRead.append(link.text());
+                                    strRead.append(" ");
+                                    link = doc.select("h6").first();
+                                    if(link != null && strRead.length() < 100) {
+                                        strRead.append(link.text());
+                                        //strRead.append(" ")
+                                    }
+                                }
+                            }
+                        }
+                }
+
+            }
 
 
+            String s = strRead.toString();
+            //	System.out.println("the s is " + s );
+            String description = s.substring(0,Math.min(s.length(),100));
+            System.out.println("the description length is " + description.length());
+            return description;
 
-			String s = strRead.toString();
-			//	System.out.println("the s is " + s );
-			String description = s.substring(0,Math.min(s.length(),100));
 
-			return description;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            return "";
+        }
 
-			// Document doc = Jsoup.connect(url).get();
-			// 	// for(Element meta : doc.select("meta")) {
-			// 	//     System.out.println("Name: " + meta.attr("p") + " - Content: " + meta.attr("content"));
-			// 	// }
-			// 	//System.out.println(doc.title());
-			//
-			// 	String title = doc.title();
-			// 	//tmp = tmp.replaceAll("\\p{Punct}+", "");
-			// 	title = title.replaceAll("\\p{Punct}+", "");
-			// 	System.out.println(title);
-			// 	System.out.println("the length is " + title.length());
-			// 	return "";
-			//insertURLInDB(urlScanned	,description);
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-			return "";
-		}
-
-	}
-
+    }
     public void fetchURL(String urlScanned) {
         //insert some links first
 
