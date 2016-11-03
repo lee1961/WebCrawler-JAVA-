@@ -117,7 +117,7 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
                     if (picture != null) {
                         //strbPic.append("<img style=\"width: 50px;height: 50px; float: left;\" src=\"" + picture + "\" alt=\"\" border=\"1\" >");
                         //System.out.println("the picure link os " + picture);
-                        strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;float:left;\"> "    );
+                        strbPic.append("<img src= " + "\""  +  picture + "\" " + "style=\"width:50px;height:50px;float:left;\" border=\"1\"> "    );
                         out.println(strbPic.toString());
                         System.out.println("the strbpic is " + strbPic.toString());
 
@@ -240,6 +240,8 @@ public class QueryServlet extends HttpServlet {  // JDK 6 and above only
             case '+':
                 result.append(" ");
                 break;
+            case '\'':
+                result.append("'");
            default:
                result.append(content[i]);
            }
