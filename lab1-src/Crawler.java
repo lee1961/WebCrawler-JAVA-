@@ -119,7 +119,11 @@ public class Crawler
             //HashTable<String,String> hash = new HashTable<String,String>();
             HashSet<String> hash_set = new HashSet<String>();
 
-            Document  doc = Jsoup.connect(url).get();
+            Document  doc = Jsoup.connect(url).data("query", "Java")
+.userAgent("Mozilla")
+.cookie("auth", "token")
+.timeout(3000)
+.post();
             String text = doc.body().text();
             String arr[] = text.split(" ");
             for(int i = 0; i < arr.length ; i++) {
@@ -158,7 +162,11 @@ public class Crawler
             // first get the title
             // then get the headers
             //if not get the stuff
-            Document  doc = Jsoup.connect(url).get();
+            Document  doc = Jsoup.connect(url).data("query", "Java")
+.userAgent("Mozilla")
+.cookie("auth", "token")
+.timeout(3000)
+.post();
             Elements links = doc.select("a[href]");
 
             String title = doc.title();
@@ -237,7 +245,11 @@ public class Crawler
             while(count < maxCount) {
                 //System.out.println("assdasd");
                 //System.out.println("urltoVisit is " + urltoVisit);
-                Document  doc = Jsoup.connect(urltoVisit).get();
+                Document  doc = Jsoup.connect(urltoVisit).data("query", "Java")
+.userAgent("Mozilla")
+.cookie("auth", "token")
+.timeout(3000)
+.post();
                 Elements links = doc.select("a[href]");
                 String description = getDescription(urltoVisit);
                 String picture = getPicture(urltoVisit);
@@ -262,7 +274,11 @@ public class Crawler
                             if(count > maxCount) {
                                 break;
                             }
-                            Document  d = Jsoup.connect(website).get();
+                            Document  d = Jsoup.connect(website).data("query", "Java")
+  .userAgent("Mozilla")
+  .cookie("auth", "token")
+  .timeout(3000)
+  .post();
 
                             String desc = getDescription(website);
                             String pic = getPicture(website);
@@ -312,7 +328,11 @@ public class Crawler
 
     public static String getPicture (String url ){
         try {
-            Document  doc = Jsoup.connect(url).get();
+            Document  doc = Jsoup.connect(url).data("query", "Java")
+.userAgent("Mozilla")
+.cookie("auth", "token")
+.timeout(3000)
+.post();
             String text = doc.body().text();
         //    Element image = doc.select("img[src$=.jpg]").first();
             //img[src~=(?i)\.(png|jpe?g)]
