@@ -17,6 +17,8 @@ public class Crawler
     static int maxCount = 0;
     public Properties props;
 
+    int maxUrlInDatabase = 0;
+
 
     Crawler() {
         urlID = 0;
@@ -101,6 +103,7 @@ public class Crawler
         //System.out.println("Executing "+query);
         //stat.executeUpdate( query );
         urlID++;
+        maxUrlInDatabase = urlID - 1;
     }
     public boolean wordInCurrentUrl(String word) throws SQLException, IOException {
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `WORDS` WHERE `Word` = ? AND urlid = ?");
@@ -120,10 +123,10 @@ public class Crawler
             HashSet<String> hash_set = new HashSet<String>();
 
             Document  doc = Jsoup.connect(url).data("query", "Java")
-.userAgent("Mozilla")
-.cookie("auth", "token")
-.timeout(3000)
-.post();
+            .userAgent("Mozilla")
+            .cookie("auth", "token")
+            .timeout(3000)
+            .post();
             String text = doc.body().text();
             String arr[] = text.split(" ");
             for(int i = 0; i < arr.length ; i++) {
@@ -163,10 +166,10 @@ public class Crawler
             // then get the headers
             //if not get the stuff
             Document  doc = Jsoup.connect(url).data("query", "Java")
-.userAgent("Mozilla")
-.cookie("auth", "token")
-.timeout(3000)
-.post();
+            .userAgent("Mozilla")
+            .cookie("auth", "token")
+            .timeout(3000)
+            .post();
             Elements links = doc.select("a[href]");
 
             String title = doc.title();
@@ -184,28 +187,28 @@ public class Crawler
                 strRead.append(" ");
                 link = doc.select("h2").first();
                 if(link != null && strRead.length() < 100) {
+                    strRead.append(link.text());
+                    strRead.append(" ");
+                    link = doc.select("h3").first();
+                    if(link != null && strRead.length() < 100) {
                         strRead.append(link.text());
                         strRead.append(" ");
-                        link = doc.select("h3").first();
-                        if(link != null && strRead.length() < 100) {
+                        link = doc.select("h4").first();
+                        if(link != null && strRead.length() < 100 ) {
                             strRead.append(link.text());
                             strRead.append(" ");
-                            link = doc.select("h4").first();
-                            if(link != null && strRead.length() < 100 ) {
+                            link = doc.select("h5").first();
+                            if(link != null && strRead.length() < 100) {
                                 strRead.append(link.text());
                                 strRead.append(" ");
-                                link = doc.select("h5").first();
+                                link = doc.select("h6").first();
                                 if(link != null && strRead.length() < 100) {
                                     strRead.append(link.text());
-                                    strRead.append(" ");
-                                    link = doc.select("h6").first();
-                                    if(link != null && strRead.length() < 100) {
-                                        strRead.append(link.text());
-                                        //strRead.append(" ")
-                                    }
+                                    //strRead.append(" ")
                                 }
                             }
                         }
+                    }
                 }
 
             }
@@ -214,7 +217,7 @@ public class Crawler
             String s = strRead.toString();
             //	System.out.println("the s is " + s );
             String description = s.substring(0,Math.min(s.length(),100));
-            System.out.println("the description length is " + description.length());
+            //System.out.println("the description length is " + description.length());
             return description;
 
 
@@ -246,10 +249,10 @@ public class Crawler
                 //System.out.println("assdasd");
                 //System.out.println("urltoVisit is " + urltoVisit);
                 Document  doc = Jsoup.connect(urltoVisit).data("query", "Java")
-.userAgent("Mozilla")
-.cookie("auth", "token")
-.timeout(3000)
-.post();
+                .userAgent("Mozilla")
+                .cookie("auth", "token")
+                .timeout(3000)
+                .post();
                 Elements links = doc.select("a[href]");
                 String description = getDescription(urltoVisit);
                 String picture = getPicture(urltoVisit);
@@ -257,28 +260,20 @@ public class Crawler
                 insertURLInDB(urltoVisit,description,picture);
                 hash_url.add(urltoVisit);
                 count++;
-                if(flag == 0) {
-                    String secondLink = "https://www.cs.purdue.edu/homes/cs390lang/java";
-                    System.out.println("the description of the second link is " + getDescription(secondLink));
-                    insertURLInDB(secondLink,getDescription(secondLink),getPicture(secondLink));
-                    hash_url.add(secondLink);
-                    flag++;
-                    count++;
-                }
 
                 for (Element link : links) {
                     String website = link.attr("abs:href");
-                    if (!hash_url.contains(website)) {
+                    if (!hash_url.contains(website) ) {
                         //still need to check whether its a valid html m8!
                         try {
                             if(count > maxCount) {
                                 break;
                             }
                             Document  d = Jsoup.connect(website).data("query", "Java")
-  .userAgent("Mozilla")
-  .cookie("auth", "token")
-  .timeout(3000)
-  .post();
+                            .userAgent("Mozilla")
+                            .cookie("auth", "token")
+                            .timeout(3000)
+                            .post();
 
                             String desc = getDescription(website);
                             String pic = getPicture(website);
@@ -317,6 +312,102 @@ public class Crawler
                     urltoVisit = result;
                     //System.out.println("the urltovisit  is " + urltoVisit);
                 }
+
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void fetchURL_with_domain(String urlScanned,String domain) {
+        //insert some links first
+
+        HashSet<String> hash_url = new HashSet<String>();
+        int flag = 0;
+
+        int refUrl = urlID;
+        try {
+
+            int count = 0;
+            int i  = 0;
+            System.out.println("sadasdsadsa");
+            System.out.println("the urlid is " + urlID);
+            //crawl starts
+            System.out.println("the max count is " + maxCount);
+            String urltoVisit = urlScanned;
+
+            while(count < maxCount) {
+                //System.out.println("assdasd");
+                //System.out.println("urltoVisit is " + urltoVisit);
+                if(urltoVisit.contains(domain)) {
+                    Document  doc = Jsoup.connect(urltoVisit).data("query", "Java")
+                    .userAgent("Mozilla")
+                    .cookie("auth", "token")
+                    .timeout(3000)
+                    .post();
+                    Elements links = doc.select("a[href]");
+                    String description = getDescription(urltoVisit);
+                    String picture = getPicture(urltoVisit);
+                    tokenizeWebsite(urltoVisit);
+                    insertURLInDB(urltoVisit,description,picture);
+                    hash_url.add(urltoVisit);
+                    count++;
+
+
+                    for (Element link : links) {
+                        String website = link.attr("abs:href");
+                        if (!hash_url.contains(website) && website.contains(domain)) {
+                            //still need to check whether its a valid html m8!
+                            try {
+                                if(count > maxCount) {
+                                    break;
+                                }
+                                Document  d = Jsoup.connect(website).data("query", "Java")
+                                .userAgent("Mozilla")
+                                .cookie("auth", "token")
+                                .timeout(3000)
+                                .post();
+
+                                String desc = getDescription(website);
+                                String pic = getPicture(website);
+
+                                //inserting the words into the word table
+                                tokenizeWebsite(website);
+                                //inserting the link into the url table
+                                insertURLInDB(website,desc,pic);
+                                hash_url.add(website);
+
+
+                                count++;
+
+                            } catch (Exception e) {
+
+                            }
+
+                        } else {
+                            //System.out.println("already have the ur3l inside the database" + g);
+                        }
+
+                    }
+                }
+                // bfs for that link is Done
+                Statement st = connection.createStatement();
+                refUrl++;
+
+                String sql = ("SELECT url FROM urls WHERE urlid = " + String.valueOf(refUrl));
+
+                PreparedStatement stmt = connection.prepareStatement("SELECT * FROM `urls` WHERE `urlid` = ?");
+                stmt.setInt(1,refUrl);
+
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    String result = rs.getString("url");
+                    //System.out.println("the result is " + result);
+                    urltoVisit = result;
+                    //System.out.println("the urltovisit  is " + urltoVisit);
+                }
             }
         }
         catch (Exception e)
@@ -326,15 +417,16 @@ public class Crawler
     }
 
 
+
     public static String getPicture (String url ){
         try {
             Document  doc = Jsoup.connect(url).data("query", "Java")
-.userAgent("Mozilla")
-.cookie("auth", "token")
-.timeout(3000)
-.post();
+            .userAgent("Mozilla")
+            .cookie("auth", "token")
+            .timeout(3000)
+            .post();
             String text = doc.body().text();
-        //    Element image = doc.select("img[src$=.jpg]").first();
+            //    Element image = doc.select("img[src$=.jpg]").first();
             //img[src~=(?i)\.(png|jpe?g)]
             //Element image = doc.select("img[src~=(?i).(png|jpe?g)]").first();
             Element image = doc.select("img[src~=]").first();
@@ -368,10 +460,12 @@ public class Crawler
     {
         Crawler crawler = new Crawler();
 
+
         try {
             crawler.readProperties();
             String root = crawler.props.getProperty("crawler.root");
             int max = Integer.parseInt(crawler.props.getProperty("crawler.maxurls"));
+            String domain = crawler.props.getProperty("crawler.domain");
             maxCount = max - 1; // minus 1 because starts from zero
             System.out.println("the maax is " + maxCount);
 
@@ -379,10 +473,19 @@ public class Crawler
             crawler.createDB();
             //System.out.println("the root is " + root);
             //crawler.fetchURL(root);
-            crawler.fetchURL("https://www.cs.purdue.edu");
+            if(domain == null) {
+                crawler.fetchURL(root);
+            } else {
+                crawler.fetchURL_with_domain(root,domain);
+            }
+
         }
         catch( Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
+
 }

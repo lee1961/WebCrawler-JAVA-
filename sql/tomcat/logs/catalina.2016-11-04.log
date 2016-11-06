@@ -1,0 +1,86 @@
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.72
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Sep 14 2016 12:12:26 UTC
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.72.0
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\conf\logging.properties
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\endorsed
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat
+Nov 04, 2016 1:50:20 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\temp
+Nov 04, 2016 1:50:20 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Loaded APR based Apache Tomcat Native library 1.2.8 using APR version 1.5.2.
+Nov 04, 2016 1:50:20 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Nov 04, 2016 1:50:21 PM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+Nov 04, 2016 1:50:22 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-9999"]
+Nov 04, 2016 1:50:22 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Nov 04, 2016 1:50:22 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 5777 ms
+Nov 04, 2016 1:50:22 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Nov 04, 2016 1:50:22 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+Nov 04, 2016 1:50:22 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\docs
+Nov 04, 2016 1:50:23 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\docs has finished in 448 ms
+Nov 04, 2016 1:50:23 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\examples
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\examples has finished in 1,039 ms
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\hello
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\hello has finished in 115 ms
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\host-manager
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\host-manager has finished in 69 ms
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\manager
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\manager has finished in 60 ms
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\ROOT
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\victo\Downloads\WebCrawler-JAVA-\sql\tomcat\webapps\ROOT has finished in 72 ms
+Nov 04, 2016 1:50:24 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-9999"]
+Nov 04, 2016 1:50:24 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Nov 04, 2016 1:50:24 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1913 ms
+Nov 04, 2016 1:52:14 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] has started
+Nov 04, 2016 1:52:14 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/hello] is completed

@@ -1,0 +1,5 @@
+127.0.0.1 - - [04/Nov/2016:13:50:33 -0400] "GET /hello/search.html HTTP/1.1" 200 410
+127.0.0.1 - - [04/Nov/2016:13:50:37 -0400] "GET /hello/searchQuery?query=victor HTTP/1.1" 200 426
+127.0.0.1 - - [04/Nov/2016:13:50:40 -0400] "GET /hello/searchQuery?query=lee HTTP/1.1" 200 420
+127.0.0.1 - - [04/Nov/2016:15:54:52 -0400] "GET /hello/searchQuery?query=victor HTTP/1.1" 200 426
+127.0.0.1 - - [04/Nov/2016:15:55:01 -0400] "GET /hello/searchQuery?query=lee HTTP/1.1" 200 877
